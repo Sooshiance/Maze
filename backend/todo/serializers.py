@@ -10,4 +10,5 @@ class ToDoSerializers(serializers.ModelSerializer):
 
     class Meta:
         model = ToDo
-        fileds = "__all__"
+        fileds = ["title", "content", "active", "status"]
+        exclude = []

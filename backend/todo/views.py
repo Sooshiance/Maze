@@ -52,12 +52,12 @@ class DeleteTaskAPIView(generics.RetrieveDestroyAPIView):
         return t
 
 
-class UpdateTaskAPIView(generics.GenericAPIView):
+class UpdateTaskAPIView(generics.RetrieveUpdateAPIView):
     """"""
     serializer_class = [ToDoSerializers]
     permission_classes = [permissions.AllowAny]
 
-    def post(self, request, pk):
+    def put(self, request, pk):
         t = ToDo.objects.get(pk=pk)
         s = ToDoSerializers(instance=t, data=request.data)
         if s.is_valid():
@@ -65,3 +65,12 @@ class UpdateTaskAPIView(generics.GenericAPIView):
             return response.Response(data=s.data, status=status.HTTP_205_RESET_CONTENT)
         else:
             return response.Response(data=s.errors, status=status.HTTP_406_NOT_ACCEPTABLE)
+
+    # def put(self, request, pk):
+    #     t = ToDo.objects.get(pk=pk)
+    #     s = ToDoSerializers(instance=t, data=request.data)
+    #     if s.is_valid():
+    #         s.save()
+    #         return response.Response(data=s.data, status=status.HTTP_205_RESET_CONTENT)
+    #     else:
+    #         return response.Response(data=s.errors, status=status.HTTP_406_NOT_ACCEPTABLE)

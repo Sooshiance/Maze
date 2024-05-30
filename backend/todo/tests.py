@@ -1,3 +1,5 @@
+import json
+
 from django.urls import reverse
 
 from rest_framework.test import APITestCase, APIClient
@@ -30,8 +32,10 @@ class ToDoTest(APITestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_createTask(self):
-        response = self.client.post(path=self.create_task, data={"pk":"3","title":'Review all Books', "content":"Read the Rust's books","active":"true"})
-        self.assertEquals(response.status_code, 201)
+        data = {"pk":"3","title":"Review all Books", "content":"Read the Rust's books","active":"true","status":2}
+        response1 = self.client.post(path=self.create_task, data=json.dumps(data), content_type='application/json')
+        print(response1.serialize())
+        self.assertEquals(response1.status_code, 201)
     
     def test_deleteTask(self):
         response = self.client.delete(path=self.delete_task)

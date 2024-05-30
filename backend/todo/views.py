@@ -65,12 +65,3 @@ class UpdateTaskAPIView(generics.RetrieveUpdateAPIView):
             return response.Response(data=s.data, status=status.HTTP_205_RESET_CONTENT)
         else:
             return response.Response(data=s.errors, status=status.HTTP_406_NOT_ACCEPTABLE)
-
-    # def put(self, request, pk):
-    #     t = ToDo.objects.get(pk=pk)
-    #     s = ToDoSerializers(instance=t, data=request.data)
-    #     if s.is_valid():
-    #         s.save()
-    #         return response.Response(data=s.data, status=status.HTTP_205_RESET_CONTENT)
-    #     else:
-    #         return response.Response(data=s.errors, status=status.HTTP_406_NOT_ACCEPTABLE)

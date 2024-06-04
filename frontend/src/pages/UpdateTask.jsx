@@ -1,10 +1,11 @@
 import React from 'react'
 
-function UpdateTask() {
-    return (
-        <div>
+function UpdateTask(props) {
 
-        </div>
+    console.log(props);
+
+    return (
+        <div></div>
     )
 }
 

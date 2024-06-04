@@ -11,12 +11,10 @@ function SingleTask() {
     console.log(todoid.id);
 
     useEffect(() => {
-        console.log(todoid.id);
         async function fetchToDo() {
             try {
                 const res = await apiCall.get(`task/${todoid.id}`)
-                console.log(res.data);
-                setTasks(res.data);
+                setTasks(res?.data);
             } catch (error) {
                 console.log(error);
             }
@@ -27,7 +25,7 @@ function SingleTask() {
     return (
         <div>
             <h3>
-                {tasks?.title}
+                {tasks.title}
             </h3>
         </div>
     )

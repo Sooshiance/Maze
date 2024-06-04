@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import SingleTask from './pages/SingleTask';
 import UpdateTask from './pages/UpdateTask';
 import './bootstrap.css';
+import NotFound from './pages/NotFound';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
             <Route exact path="/" element={<Home />} />
             <Route path='task/:id/' element={<SingleTask />} />
             <Route path='edit/:id/' element={<UpdateTask />} />
+            <Route path='*' element={<NotFound />} />
           </Route>
         </Routes>
       </Router>

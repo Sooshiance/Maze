@@ -6,7 +6,7 @@ function SingleTask() {
 
     let todoid = useParams();
 
-    const [tasks, setTasks] = useState([]);
+    const [task, setTask] = useState([]);
 
     console.log(todoid.id);
 
@@ -14,7 +14,7 @@ function SingleTask() {
         async function fetchToDo() {
             try {
                 const res = await apiCall.get(`task/${todoid.id}`)
-                setTasks(res?.data);
+                setTask(res?.data);
             } catch (error) {
                 console.log(error);
             }
@@ -25,7 +25,7 @@ function SingleTask() {
     return (
         <div>
             <h3>
-                {tasks.title}
+                {task.title}
             </h3>
         </div>
     )

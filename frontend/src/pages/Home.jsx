@@ -22,7 +22,6 @@ function Home() {
 
     return (
         <div>
-
             <Table striped>
                 <thead>
                     <tr>

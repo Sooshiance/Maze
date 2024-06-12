@@ -145,7 +145,7 @@ REST_FRAMEWORK = {
 }
 
 
-# TODO : Cross Origin Reasource Sharing headers
+# TODO : Cross Origin Resource Sharing headers
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
